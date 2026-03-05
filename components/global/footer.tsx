@@ -1,6 +1,8 @@
 'use client'
 
+import logo from '@/assets/logo.webp'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import Link from 'next/link'
 
 export default function Footer() {
@@ -82,11 +84,15 @@ export default function Footer() {
             whileInView='visible'
             viewport={{ once: true }}
           >
-            <Link
-              href='/'
-              className='text-2xl font-bold text-primary mb-4 block'
-            >
-              CM Gestun
+            <Link href='/' className='shrink-0 flex items-center gap-2 mb-4'>
+              <Image
+                src={logo}
+                alt='Logo'
+                width={100}
+                height={100}
+                className='size-10 object-contain'
+              />
+              <span className='text-2xl font-bold text-primary'>CM Gestun</span>
             </Link>
             <p className='text-muted-foreground'>
               Solusi tunai terpercaya di Palembang dengan layanan profesional

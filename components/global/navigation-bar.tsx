@@ -6,6 +6,8 @@ import { motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
+import Image from 'next/image'
+import logo from '@/assets/logo.webp'
 
 export default function NavigationBar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -27,14 +29,16 @@ export default function NavigationBar() {
       <div className='max-w-6xl mx-auto px-4 xl:px-0'>
         <div className='flex items-center justify-between h-16'>
           {/* Logo */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className='flex items-center'
-          >
-            <Link href='/' className='text-2xl font-bold text-primary'>
-              CM Gestun
-            </Link>
-          </motion.div>
+          <Link href='/' className='shrink-0 flex items-center gap-2'>
+            <Image
+              src={logo}
+              alt='Logo'
+              width={100}
+              height={100}
+              className='size-10 object-contain'
+            />
+            <span className='text-2xl font-bold text-primary'>CM Gestun</span>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className='hidden md:flex items-center gap-8'>
@@ -47,7 +51,7 @@ export default function NavigationBar() {
               >
                 <Link
                   href={item.href}
-                  className='text-foreground hover:text-primary transition-colors duration-200'
+                  className='font-medium text-foreground hover:text-primary transition-colors duration-200'
                 >
                   {item.label}
                 </Link>

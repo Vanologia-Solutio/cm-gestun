@@ -42,7 +42,7 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className='text-center mb-12'
+            className='text-center mb-8 sm:mb-12'
           >
             <h1 className='text-5xl sm:text-6xl font-bold text-foreground mb-6 text-balance'>
               Hubungi Kami
@@ -58,7 +58,7 @@ export default function ContactPage() {
       {/* Quick Contact Info */}
       <section className='py-16 px-4 sm:px-6 lg:px-8 bg-background'>
         <div className='max-w-7xl mx-auto'>
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12'>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 sm:mb-12'>
             {contactInfo.map((info, index) => {
               const IconComponent = info.icon
               return (
