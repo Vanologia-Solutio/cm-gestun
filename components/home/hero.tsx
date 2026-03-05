@@ -1,9 +1,11 @@
 'use client'
 
+import heroImage from '@/assets/hero-image.webp'
 import { Button } from '@/components/ui/button'
 import { LINK_WHATSAPP } from '@/shared/constants/general'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
+import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 export default function Hero() {
@@ -16,7 +18,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className='relative w-full h-screen flex items-center justify-center overflow-hidden bg-linear-to-br from-background via-secondary to-background pt-16'>
+    <section className='relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-linear-to-br from-background via-secondary to-background py-28 sm:py-24'>
       {/* Parallax Background Elements */}
       <motion.div
         style={{ y: scrollY * 0.5 }}
@@ -26,82 +28,75 @@ export default function Hero() {
         <div className='absolute bottom-20 right-10 w-96 h-96 bg-accent rounded-full blur-3xl'></div>
       </motion.div>
 
-      <div className='relative z-10 max-w-4xl mx-auto px-6 sm:px-8 text-center'>
-        {/* Main Heading */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h1 className='text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-tight mb-6'>
-            Solusi Tunai{' '}
-            <span className='bg-linear-to-r from-primary to-accent bg-clip-text text-transparent'>
-              Terpercaya
-            </span>
-          </h1>
-        </motion.div>
-
-        {/* Subheading */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className='text-lg sm:text-xl text-foreground/70 mb-8 max-w-2xl mx-auto'
-        >
-          Dapatkan solusi tunai cepat dan aman untuk kebutuhan finansial Anda di
-          Palembang dengan proses yang transparan dan terpercaya.
-        </motion.p>
-
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className='flex flex-col sm:flex-row gap-4 justify-center mb-12'
-        >
-          <motion.a href='/services' whileHover={{ scale: 1.025 }}>
-            <Button
-              size='lg'
-              className='bg-primary text-primary-foreground w-full sm:w-auto'
-            >
-              Jelajahi Layanan <ArrowRight size={20} />
-            </Button>
-          </motion.a>
-          <motion.a
-            href={LINK_WHATSAPP}
-            target='_blank'
-            rel='noopener noreferrer'
-            whileHover={{ scale: 1.025 }}
+      <div className='relative z-10 w-full max-w-6xl mx-auto px-4 xl:px-0 grid grid-cols-1 lg:grid-cols-2 items-center gap-4 sm:gap-12'>
+        {/* Content Side */}
+        <div className='flex-1 text-center lg:text-left'>
+          {/* Main Heading */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
           >
-            <Button
-              size='lg'
-              className='bg-green-600 text-white hover:bg-green-600/80 w-full sm:w-auto'
-            >
-              Chat WhatsApp
-            </Button>
-          </motion.a>
-        </motion.div>
+            <h1 className='text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-tight mb-6'>
+              Solusi Tunai{' '}
+              <span className='bg-linear-to-r from-primary to-accent bg-clip-text text-transparent'>
+                Terpercaya
+              </span>
+            </h1>
+          </motion.div>
 
-        {/* Trust Indicators */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className='flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm text-foreground/60'
-        >
-          <div className='flex items-center gap-2'>
-            <div className='w-2 h-2 bg-primary rounded-full'></div>
-            <span>Proses Cepat & Mudah</span>
-          </div>
-          <div className='flex items-center gap-2'>
-            <div className='w-2 h-2 bg-primary rounded-full'></div>
-            <span>Terpercaya & Transparan</span>
-          </div>
-          <div className='flex items-center gap-2'>
-            <div className='w-2 h-2 bg-primary rounded-full'></div>
-            <span>Pelayanan Profesional</span>
-          </div>
-        </motion.div>
+          {/* Subheading */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className='text-lg sm:text-xl text-foreground/70 mb-8 max-w-2xl mx-auto lg:mx-0'
+          >
+            Dapatkan solusi tunai cepat dan aman untuk kebutuhan finansial Anda
+            di Palembang dengan proses yang transparan dan terpercaya.
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className='flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12'
+          >
+            <motion.a href='/services' whileHover={{ scale: 1.025 }}>
+              <Button
+                size='lg'
+                className='bg-primary text-primary-foreground w-full sm:w-auto'
+              >
+                Jelajahi Layanan <ArrowRight size={20} />
+              </Button>
+            </motion.a>
+            <motion.a
+              href={LINK_WHATSAPP}
+              target='_blank'
+              rel='noopener noreferrer'
+              whileHover={{ scale: 1.025 }}
+            >
+              <Button
+                size='lg'
+                className='bg-green-600 text-white hover:bg-green-600/80 w-full sm:w-auto'
+              >
+                Chat WhatsApp
+              </Button>
+            </motion.a>
+          </motion.div>
+        </div>
+
+        {/* Image Side */}
+        <div className='relative aspect-square rounded-2xl overflow-hidden shadow-lg'>
+          <Image
+            src={heroImage}
+            alt='Hero Image'
+            fill
+            className='object-cover'
+            priority
+          />
+        </div>
       </div>
 
       {/* Scroll Indicator */}

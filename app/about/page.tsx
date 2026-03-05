@@ -1,12 +1,15 @@
 'use client'
 
+import { START_YEAR } from '@/shared/constants/general'
 import { motion } from 'framer-motion'
 import { CheckCircle, CheckCircle2, ShieldCheck } from 'lucide-react'
 import { Fragment } from 'react'
 
 export default function AboutPage() {
+  const yearsOfExperience = new Date().getFullYear() - START_YEAR
+
   const highlights = [
-    { text: 'Pengalaman lebih dari 0 tahun di industri' },
+    { text: `Pengalaman selama ${yearsOfExperience} tahun di industri` },
     { text: 'Ribuan pelanggan puas' },
     { text: 'Proses transparan dan terpercaya' },
     { text: 'Tim profesional siap membantu 24/7' },
@@ -118,7 +121,7 @@ export default function AboutPage() {
               <div className='grid grid-cols-2 gap-4'>
                 <div className='bg-primary/5 border border-primary/20 rounded-lg p-4 sm:p-6 text-center'>
                   <p className='text-2xl sm:text-3xl font-bold text-primary mb-2'>
-                    0+
+                    {yearsOfExperience}+
                   </p>
                   <p className='text-sm sm:text-base text-foreground/70'>
                     Tahun Pengalaman
@@ -226,14 +229,14 @@ export default function AboutPage() {
               Tim Profesional Kami
             </h2>
             <p className='text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto mb-6'>
-              Dengan pengalaman lebih dari 10 tahun di industri gesek tunai, tim
-              kami siap memberikan solusi terbaik untuk kebutuhan finansial
-              Anda. Setiap anggota tim telah tersertifikasi dan terlatih untuk
-              memberikan layanan dengan standar tertinggi.
+              Dengan pengalaman lebih dari {yearsOfExperience} tahun di industri
+              gesek tunai, tim kami siap memberikan solusi terbaik untuk
+              kebutuhan finansial Anda. Setiap anggota tim telah tersertifikasi
+              dan terlatih untuk memberikan layanan dengan standar tertinggi.
             </p>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-6 mt-12'>
               {[
-                { name: 'Profesional Layanan', count: '0+' },
+                { name: 'Profesional Layanan', count: `${yearsOfExperience}+` },
                 { name: 'Tahun Pengalaman', count: '0+' },
                 { name: 'Pelanggan Puas', count: '0+' },
               ].map((stat, index) => (

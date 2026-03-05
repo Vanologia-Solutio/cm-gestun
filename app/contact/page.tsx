@@ -3,6 +3,7 @@
 import { LINK_WHATSAPP } from '@/shared/constants/general'
 import { motion } from 'framer-motion'
 import { Clock, Mail, MapPin, Phone } from 'lucide-react'
+import { Fragment } from 'react'
 
 export default function ContactPage() {
   const contactInfo = [
@@ -34,7 +35,7 @@ export default function ContactPage() {
   ]
 
   return (
-    <>
+    <Fragment>
       {/* Contact Header */}
       <section className='pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-secondary to-background'>
         <div className='max-w-7xl mx-auto'>
@@ -176,6 +177,6 @@ export default function ContactPage() {
           </motion.div>
         </div>
       </section>
-    </>
+    </Fragment>
   )
 }

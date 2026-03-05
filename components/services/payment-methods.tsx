@@ -11,7 +11,6 @@ import jeniuspaylater from '@/assets/payment-logos/jenius.webp'
 import kredivo from '@/assets/payment-logos/kredivo.webp'
 import livin from '@/assets/payment-logos/livin.webp'
 import mastercard from '@/assets/payment-logos/mastercard.webp'
-import spaylater from '@/assets/payment-logos/spaylater.webp'
 import tiktokpaylater from '@/assets/payment-logos/tiktok.webp'
 import visa from '@/assets/payment-logos/visa.webp'
 import yup from '@/assets/payment-logos/yup.webp'
@@ -33,7 +32,6 @@ export default function PaymentMethods() {
     { id: 'blibli-paylater', name: 'Blibli Paylater', icon: bliblipaylater },
     { id: 'bca-paylater', name: 'BCA Paylater', icon: bcapaylater },
     { id: 'livin-paylater', name: 'Livin Paylater', icon: livin },
-    { id: 'spaylater', name: 'SPaylater', icon: spaylater },
     { id: 'jenius-paylater', name: 'Jenius Paylater', icon: jeniuspaylater },
   ]
 
