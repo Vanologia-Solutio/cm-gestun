@@ -18,7 +18,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: 'CM Gestun - Layanan Tunai Palembang',
-  description: 'CM Gestun adalah layanan tunai palembang yang menawarkan solusi gesek tunai secara offline dan online untuk berbagai kartu kredit dan layanan finansial digital dengan rate yang kompetitif dan proses yang cepat.',
+  description:
+    'CM Gestun adalah layanan tunai palembang yang menawarkan solusi gesek tunai secara offline dan online untuk berbagai kartu kredit dan layanan finansial digital dengan rate yang kompetitif dan proses yang cepat.',
 }
 
 export default function RootLayout({

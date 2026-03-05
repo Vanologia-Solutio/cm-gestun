@@ -1,6 +1,5 @@
 'use client'
 
-import { LINK_WHATSAPP } from '@/shared/constants/general'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
@@ -8,12 +7,41 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   const footerLinks = [
-    { title: 'Produk', links: ['Layanan Tunai', 'Metode Pembayaran', 'FAQ'] },
     {
-      title: 'Perusahaan',
-      links: ['Tentang Kami', 'Kebijakan Privasi', 'Syarat & Kondisi'],
+      title: 'Produk',
+      links: [
+        {
+          label: 'Layanan Tunai',
+          href: '/services',
+        },
+        {
+          label: 'Metode Pembayaran',
+          href: '/services',
+        },
+      ],
     },
-    { title: 'Dukungan', links: ['Hubungi Kami', 'Bantuan', 'Blog'] },
+    {
+      title: 'Tentang',
+      links: [
+        {
+          label: 'Tentang Kami',
+          href: '/about',
+        },
+      ],
+    },
+    {
+      title: 'Dukungan',
+      links: [
+        {
+          label: 'Hubungi Kami',
+          href: '/contact',
+        },
+        {
+          label: 'Blog',
+          href: 'https://gestunplg.blogspot.com/2014/10/jasa-gesek-tunai-dan-pelunasan-dana.html',
+        },
+      ],
+    },
   ]
 
   const containerVariants = {
@@ -44,7 +72,7 @@ export default function Footer() {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className='max-w-6xl mx-auto p-4 sm:p-6 lg:p-8'
+        className='max-w-6xl mx-auto p-8 xl:px-0'
       >
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12'>
           {/* Brand Section */}
@@ -60,33 +88,10 @@ export default function Footer() {
             >
               CM Gestun
             </Link>
-            <p className='text-foreground/60 mb-6'>
+            <p className='text-muted-foreground'>
               Solusi tunai terpercaya di Palembang dengan layanan profesional
               24/7.
             </p>
-            <div className='flex gap-4'>
-              {[
-                {
-                  icon: '📱',
-                  href: LINK_WHATSAPP,
-                  label: 'WhatsApp',
-                },
-                { icon: 'f', href: '#', label: 'Facebook' },
-                { icon: 'i', href: '#', label: 'Instagram' },
-              ].map((social, idx) => (
-                <motion.a
-                  key={idx}
-                  href={social.href}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className='w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-colors'
-                >
-                  {social.icon}
-                </motion.a>
-              ))}
-            </div>
           </motion.div>
 
           {/* Footer Links */}
@@ -104,12 +109,12 @@ export default function Footer() {
               </h4>
               <ul className='space-y-2 text-sm'>
                 {section.links.map((link, linkIdx) => (
-                  <li key={linkIdx}>
+                  <li key={linkIdx} className='hover:underline'>
                     <Link
-                      href={`/${link.toLowerCase()}`}
-                      className='text-foreground/60 hover:text-primary transition-colors'
+                      href={link.href}
+                      className='text-muted-foreground hover:text-primary transition-colors'
                     >
-                      {link}
+                      {link.label}
                     </Link>
                   </li>
                 ))}
@@ -128,43 +133,15 @@ export default function Footer() {
         ></motion.div>
 
         {/* Bottom Section */}
-        <motion.div
+        <motion.p
           variants={containerVariants}
           initial='hidden'
           whileInView='visible'
           viewport={{ once: true }}
-          className='flex flex-col md:flex-row items-center justify-between gap-4'
+          className='text-muted-foreground text-sm text-center'
         >
-          <motion.p
-            variants={itemVariants}
-            className='text-foreground/60 text-sm'
-          >
-            © {currentYear} CM Gestun. Semua hak dilindungi.
-          </motion.p>
-          <motion.div variants={itemVariants} className='flex gap-6'>
-            <motion.a
-              href='#'
-              whileHover={{ color: 'var(--primary)' }}
-              className='text-foreground/60 hover:text-primary text-sm transition-colors'
-            >
-              Kebijakan Privasi
-            </motion.a>
-            <motion.a
-              href='#'
-              whileHover={{ color: 'var(--primary)' }}
-              className='text-foreground/60 hover:text-primary text-sm transition-colors'
-            >
-              Syarat Layanan
-            </motion.a>
-            <motion.a
-              href='/contact'
-              whileHover={{ color: 'var(--primary)' }}
-              className='text-foreground/60 hover:text-primary text-sm transition-colors'
-            >
-              Kontak
-            </motion.a>
-          </motion.div>
-        </motion.div>
+          © {currentYear} CM Gestun. Semua hak dilindungi.
+        </motion.p>
       </motion.div>
     </footer>
   )

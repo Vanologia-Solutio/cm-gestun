@@ -1,9 +1,8 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import americanExpress from '@/assets/payment-logos/americanexpress.webp'
-import bcapaylater from '@/assets/payment-logos/bcapaylater.webp'
 import bcacard from '@/assets/payment-logos/bcacard.webp'
+import bcapaylater from '@/assets/payment-logos/bcapaylater.webp'
 import bliblipaylater from '@/assets/payment-logos/blibli.webp'
 import gopaylater from '@/assets/payment-logos/gopaylater.webp'
 import indodana from '@/assets/payment-logos/indodana.webp'
@@ -16,6 +15,7 @@ import spaylater from '@/assets/payment-logos/spaylater.webp'
 import tiktokpaylater from '@/assets/payment-logos/tiktok.webp'
 import visa from '@/assets/payment-logos/visa.webp'
 import yup from '@/assets/payment-logos/yup.webp'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 export default function PaymentMethods() {
@@ -58,20 +58,20 @@ export default function PaymentMethods() {
   }
 
   return (
-    <section className="w-full py-20 bg-secondary/20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
+    <section className='w-full py-20 bg-secondary/20 px-4 sm:px-6 lg:px-8'>
+      <div className='max-w-6xl mx-auto'>
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className='text-center mb-8 sm:mb-16'
         >
-          <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
+          <h2 className='text-3xl sm:text-4xl font-bold text-foreground mb-4'>
             Metode Pembayaran
           </h2>
-          <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
+          <p className='text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto'>
             Kami menerima berbagai metode pembayaran untuk kemudahan Anda
           </p>
         </motion.div>
@@ -79,26 +79,30 @@ export default function PaymentMethods() {
         {/* Payment Methods Grid */}
         <motion.div
           variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
+          initial='hidden'
+          whileInView='visible'
           viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4"
+          className='grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4'
         >
-          {paymentMethods.map((method) => (
+          {paymentMethods.map(method => (
             <motion.div
               key={method.id}
               variants={itemVariants}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.05,
                 boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-                transition: { duration: 0.25 }
+                transition: { duration: 0.25 },
               }}
-              className="aspect-square rounded-lg flex flex-col items-center justify-center p-8 cursor-pointer hover:bg-card transition-colors duration-250"
+              className='aspect-square rounded-lg flex flex-col items-center justify-center p-4 sm:p-6 md:p-7 lg:p-8 cursor-pointer hover:bg-card transition-colors duration-250'
             >
-              <motion.div
-                className="size-full rounded-lg flex items-center justify-center mb-3"
-              >
-                <Image src={method.icon} alt={method.name} width={0} height={0} className="size-full object-contain" />
+              <motion.div className='size-full rounded-lg flex items-center justify-center mb-3'>
+                <Image
+                  src={method.icon}
+                  alt={method.name}
+                  width={0}
+                  height={0}
+                  className='size-full object-contain'
+                />
               </motion.div>
             </motion.div>
           ))}
@@ -110,10 +114,11 @@ export default function PaymentMethods() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
           viewport={{ once: true }}
-          className="mt-12 bg-primary/5 border border-primary/20 rounded-lg p-6 text-center"
+          className='mt-12 bg-primary/5 border border-primary/20 rounded-lg p-6 text-center'
         >
-          <p className="text-foreground">
-            Proses pembayaran kami aman dan terjamin dengan enkripsi tingkat bank.
+          <p className='text-foreground'>
+            Proses pembayaran kami aman dan terjamin dengan enkripsi tingkat
+            bank.
           </p>
         </motion.div>
       </div>

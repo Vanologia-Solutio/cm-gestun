@@ -59,10 +59,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className='flex flex-col sm:flex-row gap-4 justify-center mb-12'
         >
-          <motion.a
-            href='/services'
-            whileHover={{ scale: 1.025 }}
-          >
+          <motion.a href='/services' whileHover={{ scale: 1.025 }}>
             <Button
               size='lg'
               className='bg-primary text-primary-foreground w-full sm:w-auto'
@@ -76,7 +73,10 @@ export default function Hero() {
             rel='noopener noreferrer'
             whileHover={{ scale: 1.025 }}
           >
-            <Button size='lg' className='bg-green-600 text-white hover:bg-green-600/80 w-full sm:w-auto'>
+            <Button
+              size='lg'
+              className='bg-green-600 text-white hover:bg-green-600/80 w-full sm:w-auto'
+            >
               Chat WhatsApp
             </Button>
           </motion.a>
