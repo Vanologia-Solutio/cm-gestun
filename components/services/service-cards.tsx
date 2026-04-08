@@ -10,9 +10,9 @@ export default function ServiceCards() {
       title: 'Gesek Tunai (Tarik Tunai)',
       description:
         'Menarik sejumlah uang dengan menggunakan kartu kredit Anda di merchant resmi. Uang tunai langsung Anda peroleh tanpa barang, dengan maksimal sesuai limit kartu kredit Anda.',
-      rate: 'Rate mulai dari 3.2%',
+      rate: 'Rate mulai dari 2.3%',
       features: [
-        'Proses 10-15 menit',
+        'Proses 5 Menit',
         'Dana Langsung Cair',
         'Tanpa Biaya Tambahan',
       ],
@@ -22,7 +22,7 @@ export default function ServiceCards() {
       title: 'Pelunasan Kartu Kredit',
       description:
         'Solusi terbaik untuk menghindari bunga berbunga. Kami membantu melunasi hutang kartu kredit Anda, kemudian gesek ulang dengan jumlah yang disepakati untuk menunda jatuh tempo.',
-      rate: 'Rate mulai dari 3.2%',
+      rate: 'Rate mulai dari 3%',
       features: [
         'Hindari Bunga Berbunga',
         'Track Record Bagus',
@@ -34,14 +34,14 @@ export default function ServiceCards() {
       title: 'Proses Kilat',
       description:
         'Pencairan dana dalam waktu singkat dengan sistem yang efisien. Transaksi Anda diproses dengan cepat sehingga Anda mendapatkan uang tunai dengan segera.',
-      features: ['10-15 Menit Cair', 'Proses Mudah', 'Keamanan Terjamin'],
+      features: ['5 Menit Cair', 'Proses Mudah', 'Keamanan Terjamin'],
     },
     {
       icon: Shield,
       title: 'Aman & Terpercaya',
       description:
         'Keamanan data dan kepemilikan kartu Anda terjamin sepenuhnya. KTP asli langsung dikembalikan dengan kepercayaan penuh kepada pemilik kartu.',
-      features: ['Data Aman', 'Tidak Bisa Diwakilkan', 'Privasi Terjamin'],
+      features: ['Data Aman', 'Bisa Diwakilkan', 'Privasi Terjamin'],
     },
   ]
 
@@ -68,9 +68,12 @@ export default function ServiceCards() {
   return (
     <section
       id='services'
-      className='w-full py-20 bg-background px-4 sm:px-6 lg:px-8'
+      className='relative w-full py-20 bg-background px-4 sm:px-6 lg:px-8 overflow-hidden'
     >
-      <div className='max-w-6xl mx-auto'>
+      {/* Elegant Background Texture */}
+      <div className='absolute inset-0 z-0 bg-grid-pattern opacity-50 mask-[radial-gradient(ellipse_100%_100%_at_50%_0%,#000_10%,transparent_80%)]' />
+
+      <div className='relative z-10 max-w-6xl mx-auto'>
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

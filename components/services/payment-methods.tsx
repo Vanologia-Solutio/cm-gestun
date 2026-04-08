@@ -14,6 +14,7 @@ import mastercard from '@/assets/payment-logos/mastercard.webp'
 import tiktokpaylater from '@/assets/payment-logos/tiktok.webp'
 import visa from '@/assets/payment-logos/visa.webp'
 import yup from '@/assets/payment-logos/yup.webp'
+import heroImage from '@/assets/payment.jpg'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
@@ -56,8 +57,18 @@ export default function PaymentMethods() {
   }
 
   return (
-    <section className='w-full py-20 bg-secondary/20 px-4 sm:px-6 lg:px-8'>
-      <div className='max-w-6xl mx-auto'>
+    <section className='relative w-full py-20 bg-secondary/25 px-4 sm:px-6 lg:px-8'>
+      <div className='absolute inset-0 z-0'>
+        <Image
+          src={heroImage}
+          alt='Ilustrasi Tim'
+          fill
+          className='object-cover opacity-25'
+        />
+        <div className='absolute inset-0 backdrop-blur-[2px]' />
+      </div>
+
+      <div className='relative z-10 max-w-6xl mx-auto'>
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -66,11 +77,13 @@ export default function PaymentMethods() {
           viewport={{ once: true }}
           className='text-center mb-8 sm:mb-16'
         >
-          <h2 className='text-3xl sm:text-4xl font-bold text-foreground mb-4'>
+          <h2 className='text-3xl sm:text-4xl font-bold text-foreground mb-2.5'>
             Metode Pembayaran
           </h2>
-          <p className='text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto'>
-            Kami menerima berbagai metode pembayaran untuk kemudahan Anda
+          <p className='text-base sm:text-lg text-foreground/75 max-w-2xl mx-auto'>
+            Kami menerima berbagai metode pembayaran untuk kemudahan Anda.
+            Proses pembayaran kami <strong>aman dan terjamin</strong> dengan
+            enkripsi tingkat bank.
           </p>
         </motion.div>
 
@@ -91,9 +104,9 @@ export default function PaymentMethods() {
                 boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
                 transition: { duration: 0.25 },
               }}
-              className='aspect-square rounded-lg flex flex-col items-center justify-center p-4 sm:p-6 md:p-7 lg:p-8 cursor-pointer hover:bg-card transition-colors duration-250'
+              className='aspect-4/3 rounded-lg flex flex-col items-center justify-center p-4 sm:p-6 md:p-7 lg:p-8 cursor-pointer hover:bg-background transition-colors duration-250'
             >
-              <motion.div className='size-full rounded-lg flex items-center justify-center mb-3'>
+              <motion.div className='size-full rounded-lg flex items-center justify-center'>
                 <Image
                   src={method.icon}
                   alt={method.name}
@@ -104,20 +117,6 @@ export default function PaymentMethods() {
               </motion.div>
             </motion.div>
           ))}
-        </motion.div>
-
-        {/* Info Box */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          viewport={{ once: true }}
-          className='mt-12 bg-primary/5 border border-primary/20 rounded-lg p-6 text-center'
-        >
-          <p className='text-foreground'>
-            Proses pembayaran kami aman dan terjamin dengan enkripsi tingkat
-            bank.
-          </p>
         </motion.div>
       </div>
     </section>

@@ -19,6 +19,9 @@ export default function Hero() {
 
   return (
     <section className='relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-linear-to-br from-background via-secondary to-background py-28 sm:py-24'>
+      {/* Elegant Background Texture */}
+      <div className='absolute inset-0 z-0 bg-grid-pattern opacity-50 mask-[radial-gradient(ellipse_100%_100%_at_50%_50%,#000_20%,transparent_80%)]' />
+
       {/* Parallax Background Elements */}
       <motion.div
         style={{ y: scrollY * 0.5 }}
@@ -37,10 +40,10 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className='text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-tight mb-6'>
-              Solusi Tunai{' '}
-              <span className='bg-linear-to-r from-primary to-accent bg-clip-text text-transparent'>
-                Terpercaya
+            <h1 className='text-4xl sm:text-5xl lg:text-6xl font-bold text-primary leading-tight mb-6'>
+              Kepepet Tapi Harus Cair?{' '}
+              <span className='bg-linear-to-br from-primary to-amber-600 bg-clip-text text-transparent animate-bounce inline-block'>
+                Gaskeun!
               </span>
             </h1>
           </motion.div>
@@ -52,8 +55,12 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className='text-lg sm:text-xl text-foreground/70 mb-8 max-w-2xl mx-auto lg:mx-0'
           >
-            Dapatkan solusi tunai cepat dan aman untuk kebutuhan finansial Anda
-            di Palembang dengan proses yang transparan dan terpercaya.
+            Solusi pencairan dana terpercaya di Palembang dengan proses jelas
+            dan aman.{' '}
+            <strong>
+              Pengajuan bisa dilakukan secara <em>online</em>
+            </strong>
+            , jadi lebih fleksibel kapan saja.
           </motion.p>
 
           {/* CTA Buttons */}

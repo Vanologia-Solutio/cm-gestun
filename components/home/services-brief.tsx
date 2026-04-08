@@ -1,8 +1,15 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
+import heroImage from '@/assets/cc.png'
 import { motion } from 'framer-motion'
-import { CreditCard, Shield, TrendingDown, Zap } from 'lucide-react'
+import {
+  Calculator,
+  CreditCard,
+  Globe,
+  Shield,
+  TrendingDown,
+} from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
 
 export default function ServicesBrief() {
@@ -11,25 +18,25 @@ export default function ServicesBrief() {
       icon: CreditCard,
       title: 'Gesek Tunai',
       description:
-        'Tarik tunai dengan kartu kredit Anda secara mudah dan cepat tanpa biaya tambahan.',
+        'Tarik tunai dari limit kartu kredit Anda dengan proses mudah, cepat, dan transparan.',
     },
     {
       icon: TrendingDown,
       title: 'Pelunasan Kartu Kredit',
       description:
-        'Solusi untuk menghindari bunga berbunga dengan proses cepat dan rate kompetitif.',
+        'Solusi untuk menghindari bunga berbunga dengan proses efisien dan rate kompetitif.',
     },
     {
-      icon: Zap,
-      title: 'Proses Kilat',
+      icon: Globe,
+      title: 'Layanan Online',
       description:
-        'Dana cair dalam 10-15 menit langsung ke rekening Anda dengan keamanan terjamin.',
+        'Seluruh proses dapat dilakukan secara online dengan praktis, tanpa perlu datang langsung.',
     },
     {
       icon: Shield,
       title: 'Aman & Terpercaya',
       description:
-        'Sistem keamanan berlapis untuk melindungi data dan kepemilikan kartu Anda.',
+        'Sistem keamanan berlapis untuk menjaga kerahasiaan data dan keamanan transaksi Anda.',
     },
   ]
 
@@ -54,8 +61,20 @@ export default function ServicesBrief() {
   }
 
   return (
-    <section className='py-20 px-4 sm:px-6 lg:px-8 bg-background'>
-      <div className='max-w-6xl mx-auto'>
+    <section className='relative py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-primary to-amber-800 overflow-hidden'>
+      <div className='absolute inset-0 z-10 bg-dot-pattern opacity-20 mask-[radial-gradient(ellipse_100%_100%_at_50%_50%,#000_20%,transparent_80%)]' />
+
+      <div className='absolute inset-0 z-0'>
+        <Image
+          src={heroImage}
+          alt='Ilustrasi Tim'
+          fill
+          className='object-cover opacity-25 grayscale'
+        />
+        <div className='absolute inset-0 backdrop-blur-xs' />
+      </div>
+
+      <div className='relative z-10 max-w-6xl mx-auto'>
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -64,10 +83,10 @@ export default function ServicesBrief() {
           viewport={{ once: true }}
           className='text-center mb-16'
         >
-          <h2 className='text-4xl sm:text-5xl font-bold text-foreground mb-4'>
+          <h2 className='text-4xl sm:text-5xl font-bold text-background mb-2.5'>
             Layanan Kami
           </h2>
-          <p className='text-lg text-foreground/60 max-w-2xl mx-auto'>
+          <p className='text-lg text-background max-w-2xl mx-auto'>
             Solusi gesek tunai terbaik dengan berbagai pilihan kartu kredit dan
             platform pembayaran digital
           </p>
@@ -114,13 +133,17 @@ export default function ServicesBrief() {
           viewport={{ once: true }}
           className='text-center'
         >
-          <Link href='/services'>
-            <Button
-              size='lg'
-              className='bg-primary text-primary-foreground hover:bg-accent'
-            >
-              Lihat Semua Layanan Selengkapnya
-            </Button>
+          <Link
+            href='/services#calculator'
+            className='inline-flex items-center justify-center gap-4 px-10 py-4 bg-primary text-white font-semibold rounded-xl hover:bg-accent transition-colors duration-300 w-full sm:w-auto'
+          >
+            <Calculator />
+            <div className='flex flex-col items-start'>
+              <p>Simulasi Sekarang</p>
+              <span className='text-xs text-white/75'>
+                *Hitung estimasi biaya
+              </span>
+            </div>
           </Link>
         </motion.div>
       </div>

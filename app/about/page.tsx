@@ -1,18 +1,20 @@
 'use client'
 
+import heroImage from '@/assets/trust.png'
 import { START_YEAR } from '@/shared/constants/general'
 import { motion } from 'framer-motion'
 import { CheckCircle, CheckCircle2, ShieldCheck } from 'lucide-react'
+import Image from 'next/image'
 import { Fragment } from 'react'
 
 export default function AboutPage() {
   const yearsOfExperience = new Date().getFullYear() - START_YEAR
 
   const highlights = [
-    { text: `Pengalaman selama ${yearsOfExperience} tahun di industri` },
+    { text: `Berpengalaman selama ${yearsOfExperience}+ tahun di industri` },
     { text: 'Ribuan pelanggan puas' },
     { text: 'Proses transparan dan terpercaya' },
-    { text: 'Tim profesional siap membantu 24/7' },
+    { text: 'Tim yang siap membantu 24/7' },
   ]
 
   const values = [
@@ -42,14 +44,14 @@ export default function AboutPage() {
     <Fragment>
       {/* About Header */}
       <section className='pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-secondary to-background'>
-        <div className='max-w-6xl mx-auto'>
+        <div className='relative z-10 max-w-6xl mx-auto'>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className='text-center mb-12'
           >
-            <h1 className='text-5xl sm:text-6xl font-bold text-foreground mb-6 text-balance'>
+            <h1 className='text-4xl sm:text-5xl font-bold text-foreground mb-4 text-balance'>
               Tentang Kami
             </h1>
             <p className='text-xl text-muted-foreground max-w-3xl mx-auto'>
@@ -63,9 +65,12 @@ export default function AboutPage() {
       {/* Main About Section */}
       <section
         id='highlights'
-        className='w-full py-20 bg-background px-4 sm:px-6 lg:px-8'
+        className='relative w-full py-20 bg-background px-4 sm:px-6 lg:px-8 overflow-hidden'
       >
-        <div className='max-w-6xl mx-auto'>
+        {/* Elegant Background Texture */}
+        <div className='absolute inset-0 z-0 bg-grid-pattern opacity-50 mask-[radial-gradient(ellipse_100%_100%_at_50%_50%,#000_10%,transparent_80%)]' />
+
+        <div className='relative z-10 max-w-6xl mx-auto'>
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
             {/* Left Content */}
             <motion.div
@@ -74,7 +79,7 @@ export default function AboutPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className='text-4xl sm:text-5xl font-bold text-foreground mb-6'>
+              <h2 className='text-4xl sm:text-5xl font-bold text-primary mb-6'>
                 CM Gestun
               </h2>
               <p className='text-base sm:text-lg text-foreground/70 mb-6 leading-relaxed'>
@@ -171,8 +176,20 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section */}
-      <section className='py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-br from-primary to-accent'>
-        <div className='max-w-6xl mx-auto'>
+      <section className='relative py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-primary to-amber-800'>
+        <div className='absolute inset-0 z-10 bg-dot-pattern opacity-20 mask-[radial-gradient(ellipse_100%_100%_at_50%_50%,#000_25%,transparent_80%)]' />
+
+        <div className='absolute inset-0 z-0'>
+          <Image
+            src={heroImage}
+            alt='Ilustrasi Tim'
+            fill
+            className='object-cover opacity-25'
+          />
+          <div className='absolute inset-0 backdrop-blur-xs' />
+        </div>
+
+        <div className='relative z-10 max-w-6xl mx-auto'>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -180,7 +197,7 @@ export default function AboutPage() {
             viewport={{ once: true }}
             className='text-center mb-16'
           >
-            <h2 className='text-3xl sm:text-4xl font-bold text-primary-foreground mb-2.5'>
+            <h2 className='text-3xl sm:text-4xl font-bold text-primary-foreground mb-1.5'>
               Nilai-Nilai Kami
             </h2>
             <p className='text-base sm:text-lg text-primary-foreground max-w-2xl mx-auto'>
@@ -216,8 +233,10 @@ export default function AboutPage() {
       </section>
 
       {/* Team Highlight Section */}
-      <section className='py-20 px-4 sm:px-6 lg:px-8 bg-secondary'>
-        <div className='max-w-6xl mx-auto'>
+      <section className='relative py-20 px-4 sm:px-6 lg:px-8'>
+        <div className='absolute inset-0 z-0 bg-grid-pattern opacity-50 mask-[radial-gradient(ellipse_100%_100%_at_50%_50%,#000_10%,transparent_80%)]' />
+
+        <div className='relative z-10 max-w-6xl mx-auto'>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -228,17 +247,18 @@ export default function AboutPage() {
             <h2 className='text-3xl sm:text-4xl font-bold text-foreground mb-4'>
               Tim Profesional Kami
             </h2>
-            <p className='text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto mb-6'>
-              Dengan pengalaman lebih dari {yearsOfExperience} tahun di industri
-              gesek tunai, tim kami siap memberikan solusi terbaik untuk
-              kebutuhan finansial Anda. Setiap anggota tim telah tersertifikasi
-              dan terlatih untuk memberikan layanan dengan standar tertinggi.
+            <p className='text-base sm:text-lg text-muted-foreground max-w-4xl mx-auto mb-6'>
+              Dengan pengalaman lebih dari {yearsOfExperience} tahun di bidang
+              layanan finansial, kami berkomitmen membantu Anda mendapatkan
+              solusi yang tepat, cepat, dan terpercaya. Setiap proses ditangani
+              secara langsung dengan perhatian penuh untuk memastikan kenyamanan
+              dan keamanan Anda.
             </p>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-6 mt-12'>
               {[
-                { name: 'Profesional Layanan', count: `${yearsOfExperience}+` },
-                { name: 'Tahun Pengalaman', count: '0+' },
-                { name: 'Pelanggan Puas', count: '0+' },
+                { name: 'Layanan Personal', count: '100%' },
+                { name: 'Tahun Pengalaman', count: `${yearsOfExperience}+` },
+                { name: 'Klien Terlayani', count: '0+' },
               ].map((stat, index) => (
                 <motion.div
                   key={index}

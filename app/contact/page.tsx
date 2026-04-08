@@ -1,8 +1,10 @@
 'use client'
 
+import heroImage from '@/assets/contact.png'
 import { LINK_WHATSAPP } from '@/shared/constants/general'
 import { motion } from 'framer-motion'
 import { Clock, Mail, MapPin, Phone } from 'lucide-react'
+import Image from 'next/image'
 import { Fragment } from 'react'
 
 export default function ContactPage() {
@@ -38,14 +40,14 @@ export default function ContactPage() {
     <Fragment>
       {/* Contact Header */}
       <section className='pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-secondary to-background'>
-        <div className='max-w-7xl mx-auto'>
+        <div className='max-w-6xl mx-auto'>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className='text-center mb-8 sm:mb-12'
           >
-            <h1 className='text-5xl sm:text-6xl font-bold text-foreground mb-6 text-balance'>
+            <h1 className='text-4xl sm:text-5xl font-bold text-foreground mb-4 text-balance'>
               Hubungi Kami
             </h1>
             <p className='text-xl text-muted-foreground max-w-3xl mx-auto'>
@@ -57,8 +59,8 @@ export default function ContactPage() {
       </section>
 
       {/* Quick Contact Info */}
-      <section className='py-16 px-4 sm:px-6 lg:px-8 bg-background'>
-        <div className='max-w-7xl mx-auto'>
+      <section className='relative p-4 sm:px-6 lg:px-8 bg-background overflow-hidden'>
+        <div className='relative z-10 max-w-6xl mx-auto'>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 sm:mb-12'>
             {contactInfo.map((info, index) => {
               const IconComponent = info.icon
@@ -68,14 +70,13 @@ export default function ContactPage() {
                   href={info.href}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  whileHover={{ y: -5 }}
                   className='p-6 rounded-lg bg-card border border-border hover:border-primary transition-colors duration-300 cursor-pointer'
                 >
-                  <motion.div whileHover={{ scale: 1.1 }} className='mb-4'>
+                  <div className='mb-4'>
                     <IconComponent className='size-8 text-primary' />
-                  </motion.div>
+                  </div>
                   <h3 className='text-lg font-semibold text-foreground mb-2'>
                     {info.label}
                   </h3>
@@ -90,8 +91,11 @@ export default function ContactPage() {
       </section>
 
       {/* Maps Section */}
-      <section className='py-16 px-4 sm:px-6 lg:px-8 bg-background'>
-        <div className='max-w-7xl mx-auto'>
+      <section className='relative py-16 px-4 sm:px-6 lg:px-8 bg-background overflow-hidden'>
+        {/* Elegant Background Texture */}
+        <div className='absolute inset-0 z-0 bg-dot-pattern opacity-40 mask-[radial-gradient(ellipse_100%_100%_at_50%_100%,#000_10%,transparent_80%)]' />
+
+        <div className='relative z-10 max-w-6xl mx-auto'>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -128,8 +132,18 @@ export default function ContactPage() {
       </section>
 
       {/* WhatsApp Contact Section */}
-      <section className='py-20 px-4 sm:px-6 lg:px-8 bg-secondary/10'>
-        <div className='max-w-4xl mx-auto'>
+      <section className='relative py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-primary to-accent/75'>
+        <div className='absolute inset-0 z-0'>
+          <Image
+            src={heroImage}
+            alt='Ilustrasi Tim'
+            fill
+            className='object-cover opacity-20'
+          />
+          <div className='absolute inset-0 backdrop-blur-xs' />
+        </div>
+
+        <div className='relative z-10 max-w-4xl mx-auto'>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -137,10 +151,11 @@ export default function ContactPage() {
             viewport={{ once: true }}
             className='text-center mb-12'
           >
-            <h2 className='text-3xl sm:text-4xl font-bold text-foreground mb-4'>
-              Hubungi Kami Melalui WhatsApp
+            <h2 className='text-3xl sm:text-4xl font-bold text-white mb-1.5'>
+              Hubungi Kami Melalui{' '}
+              <span className='text-green-500'>WhatsApp</span>
             </h2>
-            <p className='text-lg text-foreground/60 mb-8'>
+            <p className='text-lg text-white'>
               Cara tercepat untuk menghubungi kami dan mendapatkan respons cepat
             </p>
           </motion.div>
@@ -152,7 +167,7 @@ export default function ContactPage() {
             viewport={{ once: true }}
             className='bg-card border border-border rounded-lg p-8 md:p-12 text-center'
           >
-            <h3 className='text-2xl font-bold text-foreground mb-4'>
+            <h3 className='text-2xl font-bold text-foreground mb-2.5'>
               WhatsApp Kami
             </h3>
             <p className='text-foreground/70 mb-8 max-w-md mx-auto'>

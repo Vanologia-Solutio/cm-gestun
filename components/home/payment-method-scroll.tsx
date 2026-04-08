@@ -38,8 +38,8 @@ export default function PaymentMethodsScroll() {
   const multiplier = [...paymentMethods, ...paymentMethods, ...paymentMethods]
 
   return (
-    <section className='py-16 bg-white'>
-      <div>
+    <section className='relative py-16 bg-white overflow-hidden'>
+      <div className='relative z-10'>
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

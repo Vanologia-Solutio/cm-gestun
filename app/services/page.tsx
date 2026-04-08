@@ -18,7 +18,7 @@ export default function ServicesPage() {
             transition={{ duration: 0.6 }}
             className='text-center mb-12'
           >
-            <h1 className='text-5xl sm:text-6xl font-bold text-foreground mb-6 text-balance'>
+            <h1 className='text-4xl sm:text-5xl font-bold text-foreground mb-4 text-balance'>
               Layanan Kami
             </h1>
             <p className='text-xl text-muted-foreground max-w-3xl mx-auto'>

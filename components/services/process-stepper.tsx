@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { CheckCircle, FileText, Zap } from 'lucide-react'
+import ServiceCalculator from './service-calculator'
 
 export default function ProcessStepper() {
   const steps = [
@@ -14,8 +15,8 @@ export default function ProcessStepper() {
     {
       number: 2,
       icon: CheckCircle,
-      title: 'Verifikasi',
-      desc: 'Proses 1-2 jam kerja',
+      title: 'Transaksi',
+      desc: 'Proses 5 menit kerja',
     },
     {
       number: 3,
@@ -26,8 +27,11 @@ export default function ProcessStepper() {
   ]
 
   return (
-    <section className='py-20 px-4 sm:px-6 lg:px-8 bg-background'>
-      <div className='max-w-6xl mx-auto'>
+    <section className='relative py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-primary to-accent overflow-hidden'>
+      {/* Elegant Background Texture */}
+      <div className='absolute inset-0 z-0 bg-dot-pattern opacity-35 mask-[radial-gradient(ellipse_100%_100%_at_50%_50%,#000_10%,transparent_80%)]' />
+
+      <div className='relative z-10 max-w-6xl mx-auto'>
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -36,17 +40,18 @@ export default function ProcessStepper() {
           viewport={{ once: true }}
           className='text-center mb-8 sm:mb-16'
         >
-          <h2 className='text-3xl sm:text-4xl font-bold text-foreground mb-4'>
+          <h2 className='text-3xl sm:text-4xl font-bold text-background mb-2.5'>
             Proses Gesek Tunai Kami
           </h2>
-          <p className='text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto'>
+          <p className='text-base sm:text-lg text-background/75 max-w-3xl mx-auto'>
             Ikuti langkah-langkah sederhana kami untuk mendapatkan dana tunai
-            dengan cepat dan aman
+            dengan cepat dan aman. Hitung estimasi dana yang akan Anda terima di
+            bawah ini.
           </p>
         </motion.div>
 
         {/* Desktop View - Horizontal Stepper */}
-        <div className='relative'>
+        <div className='relative mb-8 sm:mb-16'>
           {/* Connecting Line */}
           <div className='hidden md:block absolute top-8 left-0 right-0 h-0.5 bg-border' />
 
@@ -57,7 +62,7 @@ export default function ProcessStepper() {
                 <div key={index} className='relative'>
                   {/* Step Number */}
                   <div className='hidden sm:flex justify-center mb-6'>
-                    <div className='size-16 bg-primary text-background rounded-full flex items-center justify-center font-bold text-xl relative z-10 shadow-sm'>
+                    <div className='size-16 bg-background text-primary rounded-full flex items-center justify-center font-bold text-xl relative z-10 shadow-sm'>
                       {step.number}
                     </div>
                   </div>
@@ -75,6 +80,8 @@ export default function ProcessStepper() {
             })}
           </div>
         </div>
+
+        <ServiceCalculator />
       </div>
     </section>
   )

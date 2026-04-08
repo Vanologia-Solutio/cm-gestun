@@ -1,6 +1,7 @@
 import FloatingWhatsAppButton from '@/components/global/floating-whatsapp-button'
 import Footer from '@/components/global/footer'
 import NavigationBar from '@/components/global/navigation-bar'
+import ScrollToTop from '@/shared/providers/scroll-to-top'
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import NextTopLoader from 'nextjs-toploader'
@@ -43,6 +44,7 @@ export default function RootLayout({
           speed={200}
           zIndex={99999}
         />
+        <ScrollToTop />
         <NavigationBar />
         {children}
         <Footer />

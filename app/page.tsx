@@ -2,9 +2,6 @@
 
 import { Fragment } from 'react'
 
-// import Hero from '@/components/hero'
-// import PaymentMethodsScroll from '@/components/payment-methods-scroll'
-// import ServicesBrief from '@/components/services-brief'
 import Hero from '@/components/home/hero'
 import PaymentMethodsScroll from '@/components/home/payment-method-scroll'
 import ServicesBrief from '@/components/home/services-brief'
@@ -44,8 +41,10 @@ export default function Home() {
       <PaymentMethodsScroll />
 
       {/* Why Choose Us Section */}
-      <section className='py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-br from-primary to-accent'>
-        <div className='max-w-6xl mx-auto'>
+      <section className='relative py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-br from-primary to-accent'>
+        <div className='absolute inset-0 z-0 bg-grid-pattern opacity-10 mask-[radial-gradient(ellipse_100%_100%_at_50%_50%,#000_20%,transparent_75%)]' />
+
+        <div className='relative z-10 max-w-6xl mx-auto'>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -53,7 +52,7 @@ export default function Home() {
             viewport={{ once: true }}
             className='text-center mb-16'
           >
-            <h2 className='text-3xl sm:text-4xl font-bold text-primary-foreground mb-4'>
+            <h2 className='text-3xl sm:text-4xl font-bold text-primary-foreground mb-2.5'>
               Mengapa Memilih Kami?
             </h2>
             <p className='text-base sm:text-lg text-primary-foreground max-w-2xl mx-auto'>
