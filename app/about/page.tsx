@@ -1,6 +1,6 @@
 'use client'
 
-import heroImage from '@/assets/trust.png'
+import valueImage from '@/assets/trust.webp'
 import { START_YEAR } from '@/shared/constants/general'
 import { motion } from 'framer-motion'
 import { CheckCircle, CheckCircle2, ShieldCheck } from 'lucide-react'
@@ -181,7 +181,7 @@ export default function AboutPage() {
 
         <div className='absolute inset-0 z-0'>
           <Image
-            src={heroImage}
+            src={valueImage}
             alt='Ilustrasi Tim'
             fill
             className='object-cover opacity-25'

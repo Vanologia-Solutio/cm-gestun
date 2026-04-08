@@ -1,6 +1,6 @@
 'use client'
 
-import heroImage from '@/assets/contact.png'
+import contactImage from '@/assets/contact.webp'
 import { LINK_WHATSAPP } from '@/shared/constants/general'
 import { motion } from 'framer-motion'
 import { Clock, Mail, MapPin, Phone } from 'lucide-react'
@@ -135,7 +135,7 @@ export default function ContactPage() {
       <section className='relative py-20 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-primary to-accent/75'>
         <div className='absolute inset-0 z-0'>
           <Image
-            src={heroImage}
+            src={contactImage}
             alt='Ilustrasi Tim'
             fill
             className='object-cover opacity-20'

@@ -1,6 +1,6 @@
 'use client'
 
-import heroImage from '@/assets/cc.png'
+import serviceImage from '@/assets/cc.webp'
 import { motion } from 'framer-motion'
 import {
   Calculator,
@@ -66,7 +66,7 @@ export default function ServicesBrief() {
 
       <div className='absolute inset-0 z-0'>
         <Image
-          src={heroImage}
+          src={serviceImage}
           alt='Ilustrasi Tim'
           fill
           className='object-cover opacity-25 grayscale'

@@ -14,7 +14,7 @@ import mastercard from '@/assets/payment-logos/mastercard.webp'
 import tiktokpaylater from '@/assets/payment-logos/tiktok.webp'
 import visa from '@/assets/payment-logos/visa.webp'
 import yup from '@/assets/payment-logos/yup.webp'
-import heroImage from '@/assets/payment.jpg'
+import paymentImage from '@/assets/payment.webp'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
@@ -60,7 +60,7 @@ export default function PaymentMethods() {
     <section className='relative w-full py-20 bg-secondary/25 px-4 sm:px-6 lg:px-8'>
       <div className='absolute inset-0 z-0'>
         <Image
-          src={heroImage}
+          src={paymentImage}
           alt='Ilustrasi Tim'
           fill
           className='object-cover opacity-25'
