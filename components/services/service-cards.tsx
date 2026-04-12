@@ -12,7 +12,7 @@ export default function ServiceCards() {
         'Menarik sejumlah uang dengan menggunakan kartu kredit Anda di merchant resmi. Uang tunai langsung Anda peroleh tanpa barang, dengan maksimal sesuai limit kartu kredit Anda.',
       rate: 'Rate mulai dari 2.3%',
       features: [
-        'Proses 5 Menit',
+        'Proses 5 Menit (S&K Berlaku)',
         'Dana Langsung Cair',
         'Tanpa Biaya Tambahan',
       ],
@@ -34,7 +34,7 @@ export default function ServiceCards() {
       title: 'Proses Kilat',
       description:
         'Pencairan dana dalam waktu singkat dengan sistem yang efisien. Transaksi Anda diproses dengan cepat sehingga Anda mendapatkan uang tunai dengan segera.',
-      features: ['5 Menit Cair', 'Proses Mudah', 'Keamanan Terjamin'],
+      features: ['5 Menit Cair (S&K Berlaku)', 'Proses Mudah', 'Keamanan Terjamin'],
     },
     {
       icon: Shield,

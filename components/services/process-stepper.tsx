@@ -16,7 +16,7 @@ export default function ProcessStepper() {
       number: 2,
       icon: CheckCircle,
       title: 'Transaksi',
-      desc: 'Proses 5 menit kerja',
+      desc: 'Proses 5 menit kerja (S&K berlaku)',
     },
     {
       number: 3,
